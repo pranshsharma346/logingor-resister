@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login & Signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('wavy-black-white-background.jpg') no-repeat center center/cover;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 360px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .forms {
+            position: relative;
+            display: flex;
+            width: 200%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .form {
+            width: 50%;
+            padding: 30px;
+        }
+
+        .form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form input:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+        }
+
+        .form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #6a11cb;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form button:hover {
+            background: #2575fc;
+        }
+
+        .toggle {
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .toggle:hover {
+            color: #6a11cb;
+        }
+
+        .signup-mode .forms {
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="forms">
+            <!-- Login Form -->
+            <div class="form login-form">
+                <h2>Login</h2>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button>Login</button>
+                <div class="toggle" onclick="toggleMode()">Don't have an account? <b>Sign up</b></div>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="form signup-form">
+                <h2>Signup</h2>
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button>Sign Up</button>
+                <div class="toggle" onclick="toggleMode()">Already have an account? <b>Login</b></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const container = document.getElementById('container');
+            container.classList.toggle('signup-mode');
+        }
+    </script>
+</body>
+</html>
